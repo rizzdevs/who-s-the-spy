@@ -25,1362 +25,205 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="white" opacity="0.1"/><circle cx="75" cy="75" r="1" fill="white" opacity="0.1"/><circle cx="50" cy="10" r="0.5" fill="white" opacity="0.15"/><circle cx="20" cy="80" r="0.5" fill="white" opacity="0.15"/><circle cx="80" cy="30" r="0.5" fill="white" opacity="0.15"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
-            animation: float 20s ease-in-out infinite;
-        }
-        
-        @keyframes float {
-            0%, 100% { transform: translateY(0px) rotate(0deg); }
-            50% { transform: translateY(-10px) rotate(1deg); }
-        }
-        
-        .card-shadow { 
-            box-shadow: 0 20px 40px rgba(0,0,0,0.15), 0 0 0 1px rgba(255,255,255,0.1);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255,255,255,0.2);
-        }
-        
-        .glass-effect {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.3);
-        }
-        
-        .neon-glow {
-            box-shadow: 0 0 20px rgba(102, 126, 234, 0.5), 0 0 40px rgba(102, 126, 234, 0.3);
-        }
-        
-        .pulse-animation { 
-            animation: pulse 2s infinite, glow 2s ease-in-out infinite alternate; 
-        }
-        
-        @keyframes pulse {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-        }
-        
-        @keyframes glow {
-            from { box-shadow: 0 0 20px rgba(239, 68, 68, 0.5); }
-            to { box-shadow: 0 0 30px rgba(239, 68, 68, 0.8), 0 0 40px rgba(239, 68, 68, 0.3); }
-        }
-        
-        .fade-in { animation: fadeIn 0.8s ease-out; }
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(30px) scale(0.95); }
-            to { opacity: 1; transform: translateY(0) scale(1); }
-        }
-        
-        .slide-in { animation: slideIn 0.4s ease-out; }
-        @keyframes slideIn {
-            from { transform: translateX(-100%) rotate(-5deg); opacity: 0; }
-            to { transform: translateX(0) rotate(0deg); opacity: 1; }
-        }
-        
-        .bounce-in { animation: bounceIn 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55); }
-        @keyframes bounceIn {
-            0% { transform: scale(0.3) rotate(-10deg); opacity: 0; }
-            50% { transform: scale(1.1) rotate(5deg); }
-            70% { transform: scale(0.9) rotate(-2deg); }
-            100% { transform: scale(1) rotate(0deg); opacity: 1; }
-        }
-        
-        .hover-lift {
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        
-        .hover-lift:hover {
-            transform: translateY(-8px) scale(1.02);
-            box-shadow: 0 25px 50px rgba(0,0,0,0.2);
-        }
-        
-        .gradient-text {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-        
-        .floating-shapes {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            overflow: hidden;
-            z-index: 0;
-        }
-        
-        .shape {
-            position: absolute;
-            opacity: 0.1;
-            animation: floatShapes 15s infinite linear;
-        }
-        
-        .shape:nth-child(1) { left: 10%; animation-delay: 0s; }
-        .shape:nth-child(2) { left: 20%; animation-delay: 2s; }
-        .shape:nth-child(3) { left: 35%; animation-delay: 4s; }
-        .shape:nth-child(4) { left: 50%; animation-delay: 1s; }
-        .shape:nth-child(5) { left: 70%; animation-delay: 3s; }
-        .shape:nth-child(6) { left: 85%; animation-delay: 5s; }
-        
-        @keyframes floatShapes {
-            0% { transform: translateY(100vh) rotate(0deg); }
-            100% { transform: translateY(-100px) rotate(360deg); }
-        }
-        
-        .button-gradient {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .button-gradient::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
-            transition: left 0.5s;
-        }
-        
-        .button-gradient:hover::before {
-            left: 100%;
-        }
-        
-        .sparkle {
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .sparkle::after {
-            content: '✨';
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            animation: sparkleRotate 3s ease-in-out infinite;
-        }
-        
-        @keyframes sparkleRotate {
-            0%, 100% { transform: rotate(0deg) scale(1); }
-            50% { transform: rotate(180deg) scale(1.2); }
-        }
-        
-        .typing-effect {
-            border-right: 2px solid #667eea;
-            animation: blink 1s infinite;
-        }
-        
-        @keyframes blink {
-            0%, 50% { border-color: transparent; }
-            51%, 100% { border-color: #667eea; }
-        }
-        
-        .status-indicator {
-            position: relative;
-        }
-        
-        .status-indicator::before {
-            content: '';
-            position: absolute;
-            top: -2px;
-            right: -2px;
-            width: 12px;
-            height: 12px;
-            background: #10b981;
-            border-radius: 50%;
-            animation: statusPulse 2s infinite;
-        }
-        
-        @keyframes statusPulse {
-            0% { transform: scale(1); opacity: 1; }
-            50% { transform: scale(1.3); opacity: 0.7; }
-            100% { transform: scale(1); opacity: 1; }
-        }
-        
-        .message-bubble {
-            position: relative;
-            transform: translateX(-20px);
-            opacity: 0;
-            animation: bubbleSlide 0.5s ease-out forwards;
-        }
-        
-        @keyframes bubbleSlide {
-            to {
-                transform: translateX(0);
-                opacity: 1;
-            }
-        }
-        
-        .vote-option {
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .vote-option:hover {
-            transform: translateX(10px);
-            background: linear-gradient(135deg, #f3f4f6 0%, #e5e7eb 100%);
-        }
-        
-        .vote-option::before {
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 0;
-            height: 100%;
-            width: 4px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            transform: scaleY(0);
-            transition: transform 0.3s ease;
-        }
-        
-        .vote-option:hover::before {
-            transform: scaleY(1);
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="0.5" height="0.5" patternUnits="userSpaceOnUse"><circle cx="0.25" cy="0.25" r="0.25" fill="rgba(255,255,255,0.05)"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+            opacity: 0.3;
         }
     </style>
 </head>
-<body class="gradient-bg min-h-screen">
-    <!-- Floating Background Shapes -->
-    <div class="floating-shapes">
-        <div class="shape text-6xl">🕵️</div>
-        <div class="shape text-4xl">🎮</div>
-        <div class="shape text-5xl">🎯</div>
-        <div class="shape text-3xl">🗳️</div>
-        <div class="shape text-4xl">💬</div>
-        <div class="shape text-5xl">⚪</div>
+<body class="gradient-bg flex items-center justify-center p-6">
+
+    <!-- MAIN MENU -->
+    <div id="mainMenu" class="w-full max-w-md bg-white rounded-2xl shadow-lg p-6 space-y-4 relative z-10">
+        <h1 class="text-2xl font-bold text-center">Who's the Spy 🎭</h1>
+        <button onclick="document.getElementById('createRoom').classList.remove('hidden'); document.getElementById('mainMenu').classList.add('hidden');"
+            class="w-full bg-indigo-500 text-white py-2 rounded-lg">Buat Room</button>
+        <button onclick="document.getElementById('joinRoom').classList.remove('hidden'); document.getElementById('mainMenu').classList.add('hidden');"
+            class="w-full bg-purple-500 text-white py-2 rounded-lg">Gabung Room</button>
     </div>
-    
-    <div class="container mx-auto px-4 py-8 relative z-10">
-        <!-- Header -->
-        <div class="text-center mb-12">
-            <div class="sparkle">
-                <h1 class="text-5xl md:text-7xl font-black mb-6 text-white drop-shadow-2xl typing-effect">
-                    🕵️ Who's the Spy
-                </h1>
-            </div>
-            <p class="text-xl md:text-2xl text-white opacity-95 font-medium drop-shadow-lg">
-                Game tebak kata seru untuk dimainkan bersama!
-            </p>
-            <div class="mt-4 flex justify-center space-x-2">
-                <span class="inline-block w-3 h-3 bg-white rounded-full opacity-60 animate-bounce"></span>
-                <span class="inline-block w-3 h-3 bg-white rounded-full opacity-60 animate-bounce" style="animation-delay: 0.1s"></span>
-                <span class="inline-block w-3 h-3 bg-white rounded-full opacity-60 animate-bounce" style="animation-delay: 0.2s"></span>
-            </div>
-        </div>
 
-        <!-- Main Menu -->
-        <div id="mainMenu" class="max-w-lg mx-auto fade-in">
-            <div class="glass-effect rounded-3xl p-10 card-shadow neon-glow">
-                <div class="space-y-6">
-                    <button onclick="showCreateRoom()" class="w-full button-gradient hover-lift text-white font-bold py-5 px-8 rounded-2xl transition duration-300 text-lg shadow-lg">
-                        <span class="flex items-center justify-center space-x-3">
-                            <span class="text-2xl">🎮</span>
-                            <span>Buat Room Baru</span>
-                        </span>
-                    </button>
-                    <button onclick="showJoinRoom()" class="w-full bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700 hover-lift text-white font-bold py-5 px-8 rounded-2xl transition duration-300 text-lg shadow-lg">
-                        <span class="flex items-center justify-center space-x-3">
-                            <span class="text-2xl">🚪</span>
-                            <span>Gabung Room</span>
-                        </span>
-                    </button>
-                    <button onclick="showRules()" class="w-full bg-gradient-to-r from-purple-500 to-pink-600 hover:from-purple-600 hover:to-pink-700 hover-lift text-white font-bold py-5 px-8 rounded-2xl transition duration-300 text-lg shadow-lg">
-                        <span class="flex items-center justify-center space-x-3">
-                            <span class="text-2xl">📋</span>
-                            <span>Cara Bermain</span>
-                        </span>
-                    </button>
-                </div>
-                
-                <div class="mt-8 text-center">
-                    <p class="text-gray-600 text-sm font-medium">
-                        ✨ Siap untuk jadi detektif terbaik? ✨
-                    </p>
-                </div>
-            </div>
-        </div>
+    <!-- CREATE ROOM -->
+    <div id="createRoom" class="hidden w-full max-w-md bg-white rounded-2xl shadow-lg p-6 space-y-4 relative z-10">
+        <h2 class="text-xl font-bold">Buat Room</h2>
+        <input id="hostName" placeholder="Nama kamu" class="w-full border p-2 rounded" />
+        <button onclick="createRoom()" class="w-full bg-indigo-500 text-white py-2 rounded-lg">Buat</button>
+    </div>
 
-        <!-- Create Room -->
-        <div id="createRoom" class="max-w-lg mx-auto hidden">
-            <div class="glass-effect rounded-3xl p-8 card-shadow">
-                <div class="text-center mb-6">
-                    <div class="text-4xl mb-3">🎮</div>
-                    <h2 class="text-2xl font-bold gradient-text mb-2">Buat Room Baru</h2>
-                    <p class="text-gray-600">Siapkan arena pertempuran detektif!</p>
-                </div>
-                <div class="space-y-5">
-                    <div class="relative">
-                        <input type="text" id="hostName" placeholder="Nama kamu" class="w-full px-4 py-4 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition duration-300 text-lg font-medium bg-white/80">
-                        <div class="absolute inset-y-0 right-0 flex items-center pr-4">
-                            <span class="text-gray-400">👤</span>
-                        </div>
-                    </div>
-                    <div class="relative">
-                        <select id="playerCount" class="w-full px-4 py-4 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition duration-300 text-lg font-medium bg-white/80 appearance-none" onchange="toggleCustomInput()">
-                            <option value="4">4 Pemain 👥</option>
-                            <option value="5">5 Pemain 👥👤</option>
-                            <option value="6">6 Pemain 👥👥</option>
-                            <option value="7">7 Pemain 👥👥👤</option>
-                            <option value="8">8 Pemain 👥👥👥</option>
-                            <option value="random">🎲 Random (4-8 Pemain)</option>
-                            <option value="custom">⚙️ Custom (4-15 Pemain)</option>
-                        </select>
-                        <div class="absolute inset-y-0 right-0 flex items-center pr-4 pointer-events-none">
-                            <span class="text-gray-400">▼</span>
-                        </div>
-                    </div>
-                    <div id="customPlayerInput" class="relative hidden">
-                        <input type="number" id="customPlayerCount" placeholder="Masukkan jumlah pemain (4-15)" min="4" max="15" class="w-full px-4 py-4 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition duration-300 text-lg font-medium bg-white/80">
-                        <div class="absolute inset-y-0 right-0 flex items-center pr-4">
-                            <span class="text-gray-400">👥</span>
-                        </div>
-                    </div>
-                    <button onclick="createRoom()" class="w-full button-gradient hover-lift text-white font-bold py-4 px-6 rounded-xl transition duration-300 text-lg shadow-lg">
-                        <span class="flex items-center justify-center space-x-2">
-                            <span>🚀</span>
-                            <span>Buat Room</span>
-                        </span>
-                    </button>
-                    <button onclick="showMainMenu()" class="w-full bg-gray-400 hover:bg-gray-500 hover-lift text-white font-semibold py-4 px-6 rounded-xl transition duration-300">
-                        ← Kembali
-                    </button>
-                </div>
-            </div>
-        </div>
+    <!-- JOIN ROOM -->
+    <div id="joinRoom" class="hidden w-full max-w-md bg-white rounded-2xl shadow-lg p-6 space-y-4 relative z-10">
+        <h2 class="text-xl font-bold">Gabung Room</h2>
+        <input id="playerName" placeholder="Nama kamu" class="w-full border p-2 rounded" />
+        <input id="roomCode" placeholder="Kode room" class="w-full border p-2 rounded uppercase" />
+        <button onclick="joinRoom()" class="w-full bg-purple-500 text-white py-2 rounded-lg">Gabung</button>
+    </div>
 
-        <!-- Join Room -->
-        <div id="joinRoom" class="max-w-lg mx-auto hidden">
-            <div class="glass-effect rounded-3xl p-8 card-shadow">
-                <div class="text-center mb-6">
-                    <div class="text-4xl mb-3">🚪</div>
-                    <h2 class="text-2xl font-bold gradient-text mb-2">Gabung Room</h2>
-                    <p class="text-gray-600">Masuk ke arena pertempuran!</p>
-                </div>
-                <div class="space-y-5">
-                    <div class="relative">
-                        <input type="text" id="playerName" placeholder="Nama kamu" class="w-full px-4 py-4 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-green-500 focus:border-green-500 transition duration-300 text-lg font-medium bg-white/80">
-                        <div class="absolute inset-y-0 right-0 flex items-center pr-4">
-                            <span class="text-gray-400">👤</span>
-                        </div>
-                    </div>
-                    <div class="relative">
-                        <input type="text" id="roomCode" placeholder="Kode room (6 karakter)" class="w-full px-4 py-4 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-green-500 focus:border-green-500 transition duration-300 text-lg font-medium bg-white/80 uppercase tracking-widest text-center">
-                        <div class="absolute inset-y-0 right-0 flex items-center pr-4">
-                            <span class="text-gray-400">🔑</span>
-                        </div>
-                    </div>
-                    <button onclick="joinRoom()" class="w-full bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700 hover-lift text-white font-bold py-4 px-6 rounded-xl transition duration-300 text-lg shadow-lg">
-                        <span class="flex items-center justify-center space-x-2">
-                            <span>🎯</span>
-                            <span>Gabung Room</span>
-                        </span>
-                    </button>
-                    <button onclick="showMainMenu()" class="w-full bg-gray-400 hover:bg-gray-500 hover-lift text-white font-semibold py-4 px-6 rounded-xl transition duration-300">
-                        ← Kembali
-                    </button>
-                </div>
-            </div>
-        </div>
+    <!-- WAITING ROOM -->
+    <div id="waitingRoom" class="hidden w-full max-w-md bg-white rounded-2xl shadow-lg p-6 space-y-4 relative z-10">
+        <h2 class="text-xl font-bold">Room Code: <span id="displayRoomCode"></span></h2>
+        <p>Pemain: <span id="currentPlayerCount">0</span></p>
+        <div id="playerList" class="space-y-2"></div>
+        <button id="startGameBtn" onclick="startGame()" class="hidden w-full bg-green-500 text-white py-2 rounded-lg">Mulai Game</button>
+    </div>
 
-        <!-- Rules -->
-        <div id="rules" class="max-w-2xl mx-auto hidden">
-            <div class="bg-white rounded-2xl p-8 card-shadow">
-                <h2 class="text-2xl font-bold text-gray-800 mb-6 text-center">Cara Bermain Who's the Spy</h2>
-                <div class="space-y-4 text-gray-700">
-                    <div class="bg-blue-50 p-4 rounded-lg">
-                        <h3 class="font-semibold text-blue-800 mb-2">🎯 Tujuan Game</h3>
-                        <p>Temukan siapa yang menjadi SPY di antara para pemain!</p>
-                    </div>
-                    <div class="bg-green-50 p-4 rounded-lg">
-                        <h3 class="font-semibold text-green-800 mb-2">🎮 Cara Bermain</h3>
-                        <ul class="list-disc list-inside space-y-1">
-                            <li>Setiap pemain mendapat kata rahasia</li>
-                            <li>SPY mendapat kata yang berbeda dari yang lain</li>
-                            <li>MR. WHITE tidak mendapat kata apapun (kosong)</li>
-                            <li>Bergiliran mendeskripsikan kata tanpa menyebutkan kata aslinya</li>
-                            <li>Voting untuk menentukan siapa SPY atau MR. WHITE</li>
-                        </ul>
-                    </div>
-                    <div class="bg-purple-50 p-4 rounded-lg">
-                        <h3 class="font-semibold text-purple-800 mb-2">👥 Role dalam Game</h3>
-                        <p><strong>🔵 Pemain Biasa:</strong> Dapat kata normal<br>
-                        <strong>🔴 SPY:</strong> Dapat kata berbeda<br>
-                        <strong>⚪ MR. WHITE:</strong> Tidak dapat kata apapun</p>
-                    </div>
-                    <div class="bg-yellow-50 p-4 rounded-lg">
-                        <h3 class="font-semibold text-yellow-800 mb-2">🏆 Cara Menang</h3>
-                        <p><strong>Pemain Biasa:</strong> Berhasil menemukan SPY atau MR. WHITE<br>
-                        <strong>SPY:</strong> Tidak tertangkap dan MR. WHITE tertangkap<br>
-                        <strong>MR. WHITE:</strong> Berhasil menebak kata normal setelah tertangkap</p>
-                    </div>
-                </div>
-                <button onclick="showMainMenu()" class="w-full mt-6 bg-purple-600 hover:bg-purple-700 text-white font-semibold py-3 px-6 rounded-lg transition duration-300">
-                    Kembali ke Menu
-                </button>
-            </div>
-        </div>
-
-        <!-- Waiting Room -->
-        <div id="waitingRoom" class="max-w-2xl mx-auto hidden">
-            <div class="bg-white rounded-2xl p-8 card-shadow">
-                <div class="text-center mb-6">
-                    <h2 class="text-2xl font-bold text-gray-800 mb-2">Room: <span id="displayRoomCode" class="text-blue-600"></span></h2>
-                    <p class="text-gray-600">Menunggu pemain lain bergabung...</p>
-                </div>
-                
-                <div class="bg-gray-50 rounded-lg p-4 mb-6">
-                    <h3 class="font-semibold text-gray-800 mb-3">Pemain di Room (<span id="currentPlayerCount">1</span>/<span id="maxPlayerCount">5</span>)</h3>
-                    <div id="playerList" class="space-y-2">
-                        <!-- Players will be added here -->
-                    </div>
-                </div>
-
-                <div class="flex space-x-4">
-                    <button id="startGameBtn" onclick="startGame()" class="flex-1 bg-green-600 hover:bg-green-700 text-white font-semibold py-3 px-6 rounded-lg transition duration-300 disabled:bg-gray-400 disabled:cursor-not-allowed">
-                        Mulai Game
-                    </button>
-                    <button onclick="leaveRoom()" class="bg-red-600 hover:bg-red-700 text-white font-semibold py-3 px-6 rounded-lg transition duration-300">
-                        Keluar Room
-                    </button>
-                </div>
-            </div>
-        </div>
-
-        <!-- Game Screen -->
-        <div id="gameScreen" class="max-w-lg mx-auto hidden">
-            <div class="glass-effect rounded-3xl p-6 card-shadow">
-                <!-- Word Display -->
-                <div class="text-center mb-6">
-                    <div class="bg-gradient-to-r from-blue-50 to-indigo-50 p-6 rounded-2xl border-2 border-blue-200 neon-glow">
-                        <p class="text-sm font-bold text-blue-800 mb-2">🎯 KATA KAMU:</p>
-                        <p id="playerWord" class="text-3xl font-black text-blue-600 tracking-wider drop-shadow-lg">LOADING...</p>
-                        <div class="mt-3 flex justify-center space-x-1">
-                            <div class="w-2 h-2 bg-blue-400 rounded-full animate-pulse"></div>
-                            <div class="w-2 h-2 bg-blue-400 rounded-full animate-pulse" style="animation-delay: 0.2s"></div>
-                            <div class="w-2 h-2 bg-blue-400 rounded-full animate-pulse" style="animation-delay: 0.4s"></div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Current Turn Info -->
-                <div class="bg-gradient-to-r from-green-50 to-emerald-50 rounded-2xl p-4 mb-6 border-2 border-green-200">
-                    <div class="flex justify-between items-center">
-                        <div class="status-indicator">
-                            <p class="text-sm font-bold text-green-700 mb-1">🎯 GILIRAN:</p>
-                            <p id="currentPlayerTurn" class="font-black text-green-800 text-lg">Player 1</p>
-                        </div>
-                        <div class="text-right">
-                            <p class="text-sm font-bold text-green-700 mb-1">⏰ WAKTU:</p>
-                            <p id="turnTimer" class="font-black text-green-800 text-2xl">60s</p>
-                        </div>
-                    </div>
-                    <div class="mt-3 bg-green-200 rounded-full h-2 overflow-hidden">
-                        <div class="bg-gradient-to-r from-green-400 to-emerald-500 h-full rounded-full animate-pulse"></div>
-                    </div>
-                </div>
-
-                <!-- Players Status -->
-                <div class="bg-gray-50 rounded-lg p-3 mb-4">
-                    <h3 class="font-semibold text-gray-800 mb-2 text-sm">👥 Status Pemain</h3>
-                    <div id="gamePlayerList" class="grid grid-cols-2 gap-2">
-                        <!-- Game players will be shown here -->
-                    </div>
-                </div>
-
-                <!-- Chat Area -->
-                <div class="bg-gray-50 rounded-lg p-3 mb-4">
-                    <h3 class="font-semibold text-gray-800 mb-2 text-sm">💬 Chat</h3>
-                    
-                    <!-- Chat Messages -->
-                    <div id="chatMessages" class="h-48 overflow-y-auto space-y-2 mb-3 p-2 bg-white rounded-lg text-sm">
-                        <div class="text-center text-gray-500 text-xs">
-                            Game dimulai! Bergiliran mendeskripsikan kata kalian...
-                        </div>
-                    </div>
-
-                    <!-- Chat Input -->
-                    <div class="flex space-x-2">
-                        <input type="text" id="chatInput" placeholder="Ketik pesan..." 
-                               class="flex-1 min-w-0 px-3 py-2 text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                               onkeypress="handleChatKeyPress(event)">
-                        <button onclick="sendMessage()" id="sendBtn" class="bg-blue-600 hover:bg-blue-700 text-white px-3 py-2 rounded-lg transition duration-300 text-sm flex-shrink-0">
-                            📤
-                        </button>
-                    </div>
-                </div>
-
-                <!-- Vote Button -->
-                <div class="text-center">
-                    <button id="voteButton" onclick="showVoting()" class="w-full bg-red-600 hover:bg-red-700 text-white font-semibold py-3 px-6 rounded-lg transition duration-300 pulse-animation hidden">
-                        🗳️ Mulai Voting SPY/MR. WHITE
-                    </button>
-                    <div id="waitingForDescriptions" class="w-full bg-gray-400 text-white font-semibold py-3 px-6 rounded-lg text-center">
-                        ⏳ Menunggu semua pemain selesai deskripsi...
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Voting Screen -->
-        <div id="votingScreen" class="max-w-2xl mx-auto hidden">
-            <div class="glass-effect rounded-3xl p-10 card-shadow">
-                <div class="text-center mb-8">
-                    <div class="text-6xl mb-4">🗳️</div>
-                    <h2 class="text-3xl font-black gradient-text mb-3">VOTING TIME!</h2>
-                    <p class="text-xl text-gray-700 font-semibold">Siapa SPY atau MR. WHITE?</p>
-                    <div class="mt-4 flex justify-center space-x-2">
-                        <span class="px-3 py-1 bg-red-100 text-red-800 rounded-full text-sm font-bold">🔴 SPY</span>
-                        <span class="px-3 py-1 bg-gray-100 text-gray-800 rounded-full text-sm font-bold">⚪ MR. WHITE</span>
-                    </div>
-                </div>
-                
-                <div id="votingOptions" class="space-y-3 mb-6">
-                    <!-- Voting options will be added here -->
-                </div>
-
-                <div class="text-center">
-                    <button id="submitVoteBtn" onclick="submitVote()" class="bg-gradient-to-r from-red-500 to-pink-600 hover:from-red-600 hover:to-pink-700 hover-lift text-white font-bold py-4 px-10 rounded-2xl transition duration-300 disabled:bg-gray-400 disabled:cursor-not-allowed text-lg shadow-lg pulse-animation" disabled>
-                        <span class="flex items-center justify-center space-x-2">
-                            <span>🗳️</span>
-                            <span>Submit Vote</span>
-                        </span>
-                    </button>
-                </div>
-            </div>
-        </div>
-
-        <!-- Mr White Guess Screen -->
-        <div id="mrWhiteGuess" class="max-w-2xl mx-auto hidden">
-            <div class="bg-white rounded-2xl p-8 card-shadow">
-                <h2 class="text-2xl font-bold text-gray-800 mb-6 text-center">⚪ MR. WHITE TERTANGKAP!</h2>
-                
-                <div class="text-center mb-6">
-                    <p class="text-lg text-gray-700 mb-4">
-                        <strong id="mrWhiteName"></strong> adalah MR. WHITE!
-                    </p>
-                    <p class="text-gray-600">
-                        MR. WHITE punya kesempatan terakhir untuk menebak kata normal dan menang!
-                    </p>
-                </div>
-
-                <div id="mrWhiteGuessInput" class="space-y-4">
-                    <input type="text" id="whiteGuessInput" placeholder="Tebak kata normal..." 
-                           class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent text-center text-xl font-semibold">
-                    <button onclick="submitMrWhiteGuess()" class="w-full bg-purple-600 hover:bg-purple-700 text-white font-semibold py-3 px-6 rounded-lg transition duration-300">
-                        Submit Tebakan
-                    </button>
-                </div>
-
-                <div id="mrWhiteWaiting" class="text-center hidden">
-                    <div class="animate-pulse">
-                        <p class="text-gray-600">Menunggu MR. WHITE menebak...</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Game Result -->
-        <div id="gameResult" class="max-w-2xl mx-auto hidden">
-            <div class="bg-white rounded-2xl p-8 card-shadow text-center">
-                <div id="resultContent">
-                    <!-- Result will be shown here -->
-                </div>
-                
-                <div class="mt-6 space-y-3">
-                    <button onclick="playAgain()" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-lg transition duration-300">
-                        Main Lagi
-                    </button>
-                    <button onclick="showMainMenu()" class="w-full bg-gray-500 hover:bg-gray-600 text-white font-semibold py-3 px-6 rounded-lg transition duration-300">
-                        Kembali ke Menu
-                    </button>
-                </div>
-            </div>
+    <!-- GAME SCREEN -->
+    <div id="gameScreen" class="hidden w-full max-w-md bg-white rounded-2xl shadow-lg p-6 space-y-4 relative z-10">
+        <h2 class="text-xl font-bold">Game Dimulai 🎮</h2>
+        <div id="chatMessages" class="h-64 overflow-y-auto border p-2 rounded space-y-2"></div>
+        <div class="flex space-x-2">
+            <input id="chatInput" placeholder="Ketik pesan..." class="flex-1 border p-2 rounded" />
+            <button onclick="sendMessage()" class="bg-indigo-500 text-white px-4 rounded">Kirim</button>
         </div>
     </div>
 
-    <script>
-        // Game state
-        let gameState = {
-            currentRoom: null,
-            players: [],
-            isHost: false,
-            playerName: '',
-            maxPlayers: 5,
-            gameStarted: false,
-            playerWord: '',
-            spyWord: '',
-            normalWord: '',
-            spyPlayer: '',
-            mrWhitePlayer: '',
-            selectedVote: null,
-            currentTurn: 0,
-            turnTimer: 60,
-            timerInterval: null,
-            chatMessages: [],
-            turnPhase: 'description' // 'description' or 'discussion'
-        };
-
-        // Indonesian word pairs for the game (normal word vs spy word)
-        const wordPairs = [
-            { normal: 'NASI', spy: 'ROTI' },
-            { normal: 'KUCING', spy: 'ANJING' },
-            { normal: 'MOBIL', spy: 'MOTOR' },
-            { normal: 'LAUT', spy: 'DANAU' },
-            { normal: 'MATAHARI', spy: 'BULAN' },
-            { normal: 'KOPI', spy: 'TEH' },
-            { normal: 'BUKU', spy: 'MAJALAH' },
-            { normal: 'SEPATU', spy: 'SANDAL' },
-            { normal: 'HUJAN', spy: 'SALJU' },
-            { normal: 'DOKTER', spy: 'PERAWAT' },
-            { normal: 'SEKOLAH', spy: 'UNIVERSITAS' },
-            { normal: 'APEL', spy: 'JERUK' },
-            { normal: 'PESAWAT', spy: 'KAPAL' },
-            { normal: 'GUNUNG', spy: 'BUKIT' },
-            { normal: 'SUNGAI', spy: 'KALI' },
-            { normal: 'KIPAS', spy: 'AC' },
-            { normal: 'PIZZA', spy: 'BURGER' },
-            { normal: 'GITAR', spy: 'PIANO' },
-            { normal: 'FACEBOOK', spy: 'INSTAGRAM' },
-            { normal: 'NETFLIX', spy: 'YOUTUBE' },
-            { normal: 'WHATSAPP', spy: 'TELEGRAM' },
-            { normal: 'GOJEK', spy: 'GRAB' },
-            { normal: 'INDOMIE', spy: 'SEDAAP' },
-            { normal: 'AQUA', spy: 'VOLVIC' },
-            { normal: 'SAMSUNG', spy: 'IPHONE' },
-            { normal: 'PLAYSTATION', spy: 'XBOX' },
-            { normal: 'TIKTOK', spy: 'REELS' },
-            { normal: 'SHOPEE', spy: 'TOKOPEDIA' },
-            { normal: 'WARTEG', spy: 'PADANG' },
-            { normal: 'BAKSO', spy: 'MIE AYAM' },
-            { normal: 'RENDANG', spy: 'GUDEG' },
-            { normal: 'SATE', spy: 'GULE' },
-            { normal: 'NASI GORENG', spy: 'KWETIAU' },
-            { normal: 'ES TEH', spy: 'ES JERUK' },
-            { normal: 'GORENGAN', spy: 'CILOK' },
-            { normal: 'KERUPUK', spy: 'EMPING' },
-            { normal: 'TEMPE', spy: 'TAHU' },
-            { normal: 'SAMBAL', spy: 'KECAP' },
-            { normal: 'JAKARTA', spy: 'BANDUNG' },
-            { normal: 'BALI', spy: 'LOMBOK' },
-            { normal: 'MALIOBORO', spy: 'BRAGA' },
-            { normal: 'MONAS', spy: 'GEDUNG SATE' },
-            { normal: 'ANGKOT', spy: 'BAJAJ' },
-            { normal: 'OJOL', spy: 'TAKSI' },
-            { normal: 'WARNET', spy: 'COWORKING' },
-            { normal: 'KARAOKE', spy: 'BIOSKOP' },
-            { normal: 'MALL', spy: 'PASAR' },
-            { normal: 'ALFAMART', spy: 'INDOMARET' }
-        ];
-
-        function showMainMenu() {
-            showScreen('mainMenu', 'fade-in');
-            resetGameState();
-        }
-
-        function showCreateRoom() {
-            showScreen('createRoom', 'fade-in');
-        }
-
-        function showJoinRoom() {
-            showScreen('joinRoom', 'fade-in');
-        }
-
-        function showRules() {
-            showScreen('rules', 'fade-in');
-        }
-
-        function hideAllScreens() {
-            const screens = ['mainMenu', 'createRoom', 'joinRoom', 'rules', 'waitingRoom', 'gameScreen', 'votingScreen', 'mrWhiteGuess', 'gameResult'];
-            screens.forEach(screen => {
-                const element = document.getElementById(screen);
-                element.classList.add('hidden');
-                element.classList.remove('fade-in', 'bounce-in');
-            });
-        }
-
-        function showScreen(screenId, animationType = 'fade-in') {
-            hideAllScreens();
-            const screen = document.getElementById(screenId);
-            screen.classList.remove('hidden');
-            screen.classList.add(animationType);
-        }
-
-        function generateRoomCode() {
-            return Math.random().toString(36).substring(2, 8).toUpperCase();
-        }
-
-        function toggleCustomInput() {
-            const playerCountSelect = document.getElementById('playerCount');
-            const customInput = document.getElementById('customPlayerInput');
-            
-            if (playerCountSelect.value === 'custom') {
-                customInput.classList.remove('hidden');
-            } else {
-                customInput.classList.add('hidden');
-            }
-        }
-
-        function createRoom() {
-            const hostName = document.getElementById('hostName').value.trim();
-            const playerCountValue = document.getElementById('playerCount').value;
-
-            if (!hostName) {
-                alert('Mohon masukkan nama kamu!');
-                return;
-            }
-
-            // Handle different player count options
-            let playerCount;
-            if (playerCountValue === 'random') {
-                playerCount = Math.floor(Math.random() * 5) + 4; // Random between 4-8
-            } else if (playerCountValue === 'custom') {
-                const customCount = parseInt(document.getElementById('customPlayerCount').value);
-                if (!customCount || customCount < 4 || customCount > 15) {
-                    alert('Jumlah pemain harus antara 4-15 orang!');
-                    return;
-                }
-                playerCount = customCount;
-            } else {
-                playerCount = parseInt(playerCountValue);
-            }
-
-            gameState.currentRoom = generateRoomCode();
-            gameState.isHost = true;
-            gameState.playerName = hostName;
-            gameState.maxPlayers = playerCount;
-            gameState.players = [{ name: hostName, isHost: true }];
-
-            showWaitingRoom();
-        }
-
-        function joinRoom() {
-            const playerName = document.getElementById('playerName').value.trim();
-            const roomCode = document.getElementById('roomCode').value.trim().toUpperCase();
-
-            if (!playerName) {
-                alert('Mohon masukkan nama kamu!');
-                return;
-            }
-
-            if (!roomCode) {
-                alert('Mohon masukkan kode room!');
-                return;
-            }
-
-            // Simulate joining room (in real app, this would be server call)
-            if (roomCode.length === 6) {
-                gameState.currentRoom = roomCode;
-                gameState.isHost = false;
-                gameState.playerName = playerName;
-                gameState.maxPlayers = 5; // Default for demo
-                gameState.players = [
-                    { name: 'Host Player', isHost: true },
-                    { name: playerName, isHost: false }
-                ];
-
-                showWaitingRoom();
-            } else {
-                alert('Kode room tidak valid!');
-            }
-        }
-
-        function showWaitingRoom() {
-            hideAllScreens();
-            document.getElementById('waitingRoom').classList.remove('hidden');
-            document.getElementById('displayRoomCode').textContent = gameState.currentRoom;
-            document.getElementById('maxPlayerCount').textContent = gameState.maxPlayers;
-            updatePlayerList();
-        }
-
-        function updatePlayerList() {
-            const playerList = document.getElementById('playerList');
-            const currentCount = document.getElementById('currentPlayerCount');
-            
-            playerList.innerHTML = '';
-            gameState.players.forEach((player, index) => {
-                const playerDiv = document.createElement('div');
-                playerDiv.className = 'flex items-center justify-between bg-white p-3 rounded-lg';
-                playerDiv.innerHTML = `
-                    <span class="font-medium">${player.name}</span>
-                    <span class="text-sm ${player.isHost ? 'bg-blue-100 text-blue-800' : 'bg-gray-100 text-gray-600'} px-2 py-1 rounded">
-                        ${player.isHost ? '👑 Host' : '👤 Player'}
-                    </span>
-                `;
-                playerList.appendChild(playerDiv);
-            });
-
-            currentCount.textContent = gameState.players.length;
-
-            // Enable start button - always enabled for demo
-            const startBtn = document.getElementById('startGameBtn');
-            if (startBtn) {
-                startBtn.disabled = false;
-            }
-        }
-
-        function leaveRoom() {
-            if (confirm('Yakin ingin keluar dari room?')) {
-                showMainMenu();
-            }
-        }
-
-        function startGame() {
-            if (!gameState.isHost) return;
-
-            // Add demo players to reach the selected player count
-            while (gameState.players.length < gameState.maxPlayers) {
-                gameState.players.push({
-                    name: `Player ${gameState.players.length + 1}`,
-                    isHost: false
-                });
-            }
-
-            // Select random word pair
-            const wordPair = wordPairs[Math.floor(Math.random() * wordPairs.length)];
-            gameState.normalWord = wordPair.normal;
-            gameState.spyWord = wordPair.spy;
-
-            // Randomly select spy and mr white
-            const availableIndexes = [...Array(gameState.players.length).keys()];
-            const spyIndex = availableIndexes.splice(Math.floor(Math.random() * availableIndexes.length), 1)[0];
-            const mrWhiteIndex = availableIndexes[Math.floor(Math.random() * availableIndexes.length)];
-            
-            gameState.spyPlayer = gameState.players[spyIndex].name;
-            gameState.mrWhitePlayer = gameState.players[mrWhiteIndex].name;
-
-            // Assign word to current player
-            if (gameState.playerName === gameState.spyPlayer) {
-                gameState.playerWord = gameState.spyWord;
-            } else if (gameState.playerName === gameState.mrWhitePlayer) {
-                gameState.playerWord = '???';
-            } else {
-                gameState.playerWord = gameState.normalWord;
-            }
-
-            gameState.gameStarted = true;
-            showGameScreen();
-        }
-
-        function showGameScreen() {
-            hideAllScreens();
-            document.getElementById('gameScreen').classList.remove('hidden');
-            document.getElementById('playerWord').textContent = gameState.playerWord;
-            
-            // Reset voting button state
-            document.getElementById('voteButton').classList.add('hidden');
-            document.getElementById('waitingForDescriptions').classList.remove('hidden');
-            
-            // Start the turn system
-            startTurnSystem();
-            updateGamePlayerList();
-            
-            // Add welcome message
-            addSystemMessage(`Game dimulai! ${gameState.players[0].name} mulai mendeskripsikan kata mereka.`);
-            
-            // Simulate other players if needed
-            setTimeout(() => {
-                simulateOtherPlayers();
-            }, 2000);
-        }
-
-        function updateGamePlayerList() {
-            const gamePlayerList = document.getElementById('gamePlayerList');
-            gamePlayerList.innerHTML = '';
-
-            gameState.players.forEach((player, index) => {
-                const playerDiv = document.createElement('div');
-                const isCurrentTurn = index === gameState.currentTurn && gameState.turnPhase === 'description';
-                const hasDescribed = gameState.chatMessages.some(msg => msg.player === player.name && msg.type === 'description');
-                
-                playerDiv.className = `bg-white p-2 rounded text-center text-xs ${isCurrentTurn ? 'ring-2 ring-green-500' : ''}`;
-                playerDiv.innerHTML = `
-                    <div class="font-medium truncate">${player.name}</div>
-                    <div class="text-xs mt-1 ${
-                        isCurrentTurn ? 'text-green-600' : 
-                        hasDescribed ? 'text-blue-600' : 
-                        'text-gray-500'
-                    }">
-                        ${isCurrentTurn ? '🎯' : hasDescribed ? '✅' : '⏳'}
-                    </div>
-                `;
-                gamePlayerList.appendChild(playerDiv);
-            });
-        }
-
-        function startTurnSystem() {
-            gameState.currentTurn = 0;
-            gameState.turnPhase = 'description';
-            gameState.turnTimer = 60;
-            updateCurrentTurn();
-            startTimer();
-        }
-
-        function updateCurrentTurn() {
-            const currentPlayerTurn = document.getElementById('currentPlayerTurn');
-            const turnTimer = document.getElementById('turnTimer');
-            
-            if (gameState.turnPhase === 'description') {
-                currentPlayerTurn.textContent = gameState.players[gameState.currentTurn].name;
-                turnTimer.textContent = `${gameState.turnTimer}s`;
-            } else {
-                currentPlayerTurn.textContent = 'Diskusi Bebas';
-                turnTimer.textContent = '∞';
-            }
-            
-            updateGamePlayerList();
-        }
-
-        function startTimer() {
-            if (gameState.timerInterval) {
-                clearInterval(gameState.timerInterval);
-            }
-            
-            gameState.timerInterval = setInterval(() => {
-                gameState.turnTimer--;
-                updateCurrentTurn();
-                
-                if (gameState.turnTimer <= 0) {
-                    nextTurn();
-                }
-            }, 1000);
-        }
-
-        function nextTurn() {
-            if (gameState.turnPhase === 'description') {
-                gameState.currentTurn++;
-                
-                if (gameState.currentTurn >= gameState.players.length) {
-                    // All players have described, move to discussion phase
-                    gameState.turnPhase = 'discussion';
-                    clearInterval(gameState.timerInterval);
-                    addSystemMessage('Semua pemain sudah mendeskripsikan kata mereka. Sekarang diskusikan siapa SPY-nya!');
-                    
-                    // Show voting button and hide waiting message
-                    document.getElementById('voteButton').classList.remove('hidden');
-                    document.getElementById('waitingForDescriptions').classList.add('hidden');
-                } else {
-                    gameState.turnTimer = 60;
-                }
-                
-                updateCurrentTurn();
-            }
-        }
-
-        function sendMessage() {
-            const chatInput = document.getElementById('chatInput');
-            const message = chatInput.value.trim();
-            
-            if (!message) return;
-            
-            const isCurrentPlayer = gameState.players[gameState.currentTurn]?.name === gameState.playerName;
-            const messageType = (gameState.turnPhase === 'description' && isCurrentPlayer) ? 'description' : 'chat';
-            
-            addMessage(gameState.playerName, message, messageType);
-            
-            // If it's the current player's turn and they're describing, move to next turn
-            if (messageType === 'description') {
-                setTimeout(() => {
-                    nextTurn();
-                }, 1000);
-            }
-            
-            chatInput.value = '';
-        }
-
-        function handleChatKeyPress(event) {
-            if (event.key === 'Enter') {
-                sendMessage();
-            }
-        }
-
-        function addMessage(playerName, message, type = 'chat') {
-            const chatMessages = document.getElementById('chatMessages');
-            const messageObj = { player: playerName, message, type, timestamp: Date.now() };
-            gameState.chatMessages.push(messageObj);
-            
-            const messageDiv = document.createElement('div');
-            messageDiv.className = `message-bubble p-4 rounded-2xl ${
-                type === 'description' ? 'bg-gradient-to-r from-blue-50 to-indigo-50 border-l-4 border-blue-500 shadow-md' : 
-                type === 'system' ? 'bg-gradient-to-r from-yellow-50 to-orange-50 border-l-4 border-yellow-500 shadow-md' :
-                'bg-gradient-to-r from-gray-50 to-slate-50 shadow-sm'
-            }`;
-            
-            messageDiv.innerHTML = `
-                <div class="flex items-start space-x-3">
-                    <div class="flex-shrink-0">
-                        <span class="text-lg">
-                            ${type === 'description' ? '🎯' : type === 'system' ? '🤖' : '💬'}
-                        </span>
-                    </div>
-                    <div class="flex-1">
-                        <span class="font-bold text-sm ${
-                            type === 'description' ? 'text-blue-700' : 
-                            type === 'system' ? 'text-yellow-700' :
-                            'text-gray-700'
-                        }">${playerName}${type === 'description' ? ' (Deskripsi)' : ''}:</span>
-                        <p class="text-gray-800 mt-1 font-medium">${message}</p>
-                    </div>
-                </div>
-            `;
-            
-            chatMessages.appendChild(messageDiv);
-            chatMessages.scrollTop = chatMessages.scrollHeight;
-        }
-
-        function addSystemMessage(message) {
-            addMessage('System', message, 'system');
-        }
-
-        function simulateOtherPlayers() {
-            // Simulate other players giving descriptions
-            const descriptions = [
-                'Ini adalah sesuatu yang sering kita makan setiap hari',
-                'Biasanya berwarna putih dan mengenyangkan',
-                'Makanan pokok orang Indonesia',
-                'Dimakan pakai lauk pauk'
-            ];
-            
-            let delay = 3000;
-            gameState.players.forEach((player, index) => {
-                if (player.name !== gameState.playerName && index < descriptions.length) {
-                    setTimeout(() => {
-                        if (gameState.currentTurn === index && gameState.turnPhase === 'description') {
-                            addMessage(player.name, descriptions[index], 'description');
-                            setTimeout(() => {
-                                nextTurn();
-                            }, 1000);
-                        }
-                    }, delay);
-                    delay += 5000;
-                }
-            });
-        }
-
-        function showVoting() {
-            hideAllScreens();
-            document.getElementById('votingScreen').classList.remove('hidden');
-            setupVotingOptions();
-        }
-
-        function setupVotingOptions() {
-            const votingOptions = document.getElementById('votingOptions');
-            votingOptions.innerHTML = '';
-
-            gameState.players.forEach(player => {
-                const optionDiv = document.createElement('div');
-                optionDiv.className = 'vote-option';
-                optionDiv.innerHTML = `
-                    <label class="flex items-center p-5 bg-gradient-to-r from-gray-50 to-slate-50 rounded-2xl cursor-pointer hover:shadow-lg transition duration-300 border-2 border-gray-200 hover:border-blue-300">
-                        <input type="radio" name="spyVote" value="${player.name}" class="mr-4 w-5 h-5 text-blue-600" onchange="selectVote('${player.name}')">
-                        <div class="flex items-center space-x-3">
-                            <span class="text-2xl">👤</span>
-                            <span class="font-bold text-lg text-gray-800">${player.name}</span>
-                        </div>
-                    </label>
-                `;
-                votingOptions.appendChild(optionDiv);
-            });
-        }
-
-        function selectVote(playerName) {
-            gameState.selectedVote = playerName;
-            document.getElementById('submitVoteBtn').disabled = false;
-        }
-
-        function submitVote() {
-            if (!gameState.selectedVote) return;
-
-            // Check if voted player is spy or mr white
-            const votedSpy = gameState.selectedVote === gameState.spyPlayer;
-            const votedMrWhite = gameState.selectedVote === gameState.mrWhitePlayer;
-            
-            if (votedMrWhite) {
-                // Mr White caught - give chance to guess
-                showMrWhiteGuess();
-            } else if (votedSpy) {
-                // Spy caught - civilians win
-                showGameResult('spy_caught');
-            } else {
-                // Wrong vote - spy and mr white win
-                showGameResult('wrong_vote');
-            }
-        }
-
-        function showMrWhiteGuess() {
-            showScreen('mrWhiteGuess', 'bounce-in');
-            document.getElementById('mrWhiteName').textContent = gameState.mrWhitePlayer;
-            
-            // Show input only if current player is Mr White
-            if (gameState.playerName === gameState.mrWhitePlayer) {
-                document.getElementById('mrWhiteGuessInput').classList.remove('hidden');
-                document.getElementById('mrWhiteWaiting').classList.add('hidden');
-            } else {
-                document.getElementById('mrWhiteGuessInput').classList.add('hidden');
-                document.getElementById('mrWhiteWaiting').classList.remove('hidden');
-            }
-        }
-
-        function submitMrWhiteGuess() {
-            const guess = document.getElementById('whiteGuessInput').value.trim().toUpperCase();
-            if (!guess) return;
-
-            // Check if guess is correct
-            const isCorrect = guess === gameState.normalWord;
-            
-            if (isCorrect) {
-                showGameResult('mr_white_wins');
-            } else {
-                showGameResult('civilians_win');
-            }
-        }
-
-        function showGameResult(resultType) {
-            showScreen('gameResult', 'bounce-in');
-            
-            const resultContent = document.getElementById('resultContent');
-            
-            switch(resultType) {
-                case 'spy_caught':
-                    resultContent.innerHTML = `
-                        <div class="text-center">
-                            <div class="text-6xl mb-4">🎉</div>
-                            <h2 class="text-3xl font-bold text-green-600 mb-4">SPY TERTANGKAP!</h2>
-                            <p class="text-lg text-gray-700 mb-4">
-                                <strong>${gameState.spyPlayer}</strong> adalah SPY!
-                            </p>
-                            <div class="bg-green-50 p-4 rounded-lg">
-                                <p class="text-green-800">
-                                    <strong>🔵 Kata Normal:</strong> ${gameState.normalWord}<br>
-                                    <strong>🔴 Kata SPY:</strong> ${gameState.spyWord}<br>
-                                    <strong>⚪ MR. WHITE:</strong> ${gameState.mrWhitePlayer}
-                                </p>
-                            </div>
-                        </div>
-                    `;
-                    break;
-                    
-                case 'mr_white_wins':
-                    resultContent.innerHTML = `
-                        <div class="text-center">
-                            <div class="text-6xl mb-4">⚪</div>
-                            <h2 class="text-3xl font-bold text-purple-600 mb-4">MR. WHITE MENANG!</h2>
-                            <p class="text-lg text-gray-700 mb-4">
-                                <strong>${gameState.mrWhitePlayer}</strong> berhasil menebak kata normal!
-                            </p>
-                            <div class="bg-purple-50 p-4 rounded-lg">
-                                <p class="text-purple-800">
-                                    <strong>🔵 Kata Normal:</strong> ${gameState.normalWord}<br>
-                                    <strong>🔴 SPY:</strong> ${gameState.spyPlayer}<br>
-                                    <strong>⚪ MR. WHITE:</strong> ${gameState.mrWhitePlayer}
-                                </p>
-                            </div>
-                        </div>
-                    `;
-                    break;
-                    
-                case 'civilians_win':
-                    resultContent.innerHTML = `
-                        <div class="text-center">
-                            <div class="text-6xl mb-4">🎉</div>
-                            <h2 class="text-3xl font-bold text-blue-600 mb-4">PEMAIN BIASA MENANG!</h2>
-                            <p class="text-lg text-gray-700 mb-4">
-                                MR. WHITE tertangkap dan gagal menebak!<br>
-                                Tebakan: <strong id="wrongGuess"></strong>
-                            </p>
-                            <div class="bg-blue-50 p-4 rounded-lg">
-                                <p class="text-blue-800">
-                                    <strong>🔵 Kata Normal:</strong> ${gameState.normalWord}<br>
-                                    <strong>🔴 SPY:</strong> ${gameState.spyPlayer}<br>
-                                    <strong>⚪ MR. WHITE:</strong> ${gameState.mrWhitePlayer}
-                                </p>
-                            </div>
-                        </div>
-                    `;
-                    break;
-                    
-                case 'wrong_vote':
-                    resultContent.innerHTML = `
-                        <div class="text-center">
-                            <div class="text-6xl mb-4">🕵️</div>
-                            <h2 class="text-3xl font-bold text-red-600 mb-4">SPY & MR. WHITE MENANG!</h2>
-                            <p class="text-lg text-gray-700 mb-4">
-                                Salah tebak! Yang dipilih: <strong>${gameState.selectedVote}</strong><br>
-                                SPY: <strong>${gameState.spyPlayer}</strong><br>
-                                MR. WHITE: <strong>${gameState.mrWhitePlayer}</strong>
-                            </p>
-                            <div class="bg-red-50 p-4 rounded-lg">
-                                <p class="text-red-800">
-                                    <strong>🔵 Kata Normal:</strong> ${gameState.normalWord}<br>
-                                    <strong>🔴 Kata SPY:</strong> ${gameState.spyWord}<br>
-                                    <strong>⚪ MR. WHITE:</strong> Tidak ada kata
-                                </p>
-                            </div>
-                        </div>
-                    `;
-                    break;
-            }
-        }
-
-        function playAgain() {
-            if (gameState.isHost) {
-                startGame();
-            } else {
-                alert('Hanya host yang bisa memulai game baru!');
-            }
-        }
-
-        function resetGameState() {
-            // Clear timer if running
-            if (gameState.timerInterval) {
-                clearInterval(gameState.timerInterval);
-            }
-            
-            gameState = {
-                currentRoom: null,
-                players: [],
-                isHost: false,
-                playerName: '',
-                maxPlayers: 5,
-                gameStarted: false,
-                playerWord: '',
-                spyWord: '',
-                normalWord: '',
-                spyPlayer: '',
-                mrWhitePlayer: '',
-                selectedVote: null,
-                currentTurn: 0,
-                turnTimer: 60,
-                timerInterval: null,
-                chatMessages: [],
-                turnPhase: 'description'
-            };
-        }
-
-        // Initialize app
-        showMainMenu();
-    </script>
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'97ee6d29a6dbef6a',t:'MTc1NzgzNzYyMS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script>
-<script type="module">
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/9.24.0/firebase-app.js";
-  import { getDatabase, ref, push, set, onChildAdded, onChildRemoved, onValue, update, get, child, remove } 
-    from "https://www.gstatic.com/firebasejs/9.24.0/firebase-database.js";
-
-  const firebaseConfig = {
-    apiKey: "AIzaSyCIISpCe24KexjiiNYpuM3v7DhMOtewT_8",
-    authDomain: "whos-the-spy-game.firebaseapp.com",
-    databaseURL: "https://whos-the-spy-game-default-rtdb.firebaseio.com",
-    projectId: "whos-the-spy-game",
-    storageBucket: "whos-the-spy-game.firebasestorage.app",
-    messagingSenderId: "267041654513",
-    appId: "1:267041654513:web:f961b8ff449b0b1df20b50",
-    measurementId: "G-1EZ9KQVTKC"
-  };
-
-  const app = initializeApp(firebaseConfig);
-  const db = getDatabase(app);
-
-  let local = { roomCode:null, playerId:null, playerName:null, isHost:false, players:{} };
-
-  function generateRoomCode() {
-    const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
-    let code = ''; for (let i=0;i<6;i++) code += chars.charAt(Math.floor(Math.random()*chars.length));
-    return code;
-  }
-
-  window.createRoom = async function() {
-    const hostName = document.getElementById('hostName').value.trim();
-    if (!hostName) return alert("Isi nama dulu!");
-    const roomCode = generateRoomCode();
-    const now = Date.now();
-    await set(ref(db, `rooms/${roomCode}`), { createdAt: now, state:{gameStarted:false} });
-
-    const playerId = `p_${now}`;
-    await set(ref(db, `rooms/${roomCode}/players/${playerId}`), { name: hostName, isHost:true, alive:true });
-    local = { roomCode, playerId, playerName:hostName, isHost:true, players:{} };
-
-    document.getElementById('createRoom').classList.add('hidden');
-    document.getElementById('waitingRoom').classList.remove('hidden');
-    document.getElementById('displayRoomCode').textContent = roomCode;
-    document.getElementById('startGameBtn').classList.remove('hidden');
-    listenRoom(roomCode);
-  };
-
-  window.joinRoom = async function() {
-    const name = document.getElementById('playerName').value.trim();
-    const roomCode = document.getElementById('roomCode').value.trim().toUpperCase();
-    if (!name || !roomCode) return alert("Isi nama dan kode room!");
-    const snap = await get(ref(db, `rooms/${roomCode}`));
-    if (!snap.exists()) return alert("Room tidak ditemukan!");
-
-    const playerId = `p_${Date.now()}`;
-    await set(ref(db, `rooms/${roomCode}/players/${playerId}`), { name, isHost:false, alive:true });
-    local = { roomCode, playerId, playerName:name, isHost:false, players:{} };
-
-    document.getElementById('joinRoom').classList.add('hidden');
-    document.getElementById('waitingRoom').classList.remove('hidden');
-    document.getElementById('displayRoomCode').textContent = roomCode;
-    listenRoom(roomCode);
-  };
-
-  window.startGame = async function() {
-    if (!local.isHost) return alert("Hanya host bisa start!");
-    await update(ref(db, `rooms/${local.roomCode}/state`), { gameStarted:true });
-  };
-
-  window.sendMessage = async function() {
-    const input = document.getElementById('chatInput');
-    const text = input.value.trim(); if (!text) return;
-    const chatRef = ref(db, `rooms/${local.roomCode}/chat`);
-    await set(push(chatRef), { player:local.playerName, message:text, ts:Date.now() });
-    input.value = '';
-  };
-
-  function listenRoom(roomCode) {
-    onChildAdded(ref(db, `rooms/${roomCode}/players`), snap => {
-      local.players[snap.key] = snap.val(); updatePlayerList();
-    });
-    onChildRemoved(ref(db, `rooms/${roomCode}/players`), snap => {
-      delete local.players[snap.key]; updatePlayerList();
-    });
-
-    onChildAdded(ref(db, `rooms/${roomCode}/chat`), snap => {
-      const m = snap.val(); addMessage(m.player, m.message);
-    });
-
-    onValue(ref(db, `rooms/${roomCode}/state`), snap => {
-      const st = snap.val();
-      if (st && st.gameStarted) {
-        document.getElementById('waitingRoom').classList.add('hidden');
-        document.getElementById('gameScreen').classList.remove('hidden');
+    <!-- 🔥 Firebase & Logic -->
+    <script type="module">
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/9.24.0/firebase-app.js";
+      import { getDatabase, ref, push, set, onChildAdded, onChildRemoved, onValue, update, get, remove } 
+        from "https://www.gstatic.com/firebasejs/9.24.0/firebase-database.js";
+
+      const firebaseConfig = {
+        apiKey: "AIzaSyCIISpCe24KexjiiNYpuM3v7DhMOtewT_8",
+        authDomain: "whos-the-spy-game.firebaseapp.com",
+        databaseURL: "https://whos-the-spy-game-default-rtdb.firebaseio.com",
+        projectId: "whos-the-spy-game",
+        storageBucket: "whos-the-spy-game.firebasestorage.app",
+        messagingSenderId: "267041654513",
+        appId: "1:267041654513:web:f961b8ff449b0b1df20b50",
+        measurementId: "G-1EZ9KQVTKC"
+      };
+
+      const app = initializeApp(firebaseConfig);
+      const db = getDatabase(app);
+
+      let local = { roomCode:null, playerId:null, playerName:null, isHost:false, players:{} };
+
+      function generateRoomCode() {
+        const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+        return Array.from({length:6},()=>chars[Math.floor(Math.random()*chars.length)]).join('');
       }
-    });
-  }
 
-  function updatePlayerList() {
-    const list = document.getElementById('playerList'); list.innerHTML='';
-    Object.values(local.players).forEach(p => {
-      const div = document.createElement('div');
-      div.className="p-2 bg-gray-100 rounded";
-      div.textContent = p.name + (p.isHost ? " 👑" : "");
-      list.appendChild(div);
-    });
-    document.getElementById('currentPlayerCount').textContent = Object.keys(local.players).length;
-  }
+      // === CREATE ROOM ===
+      window.createRoom = async function() {
+        const hostName = document.getElementById('hostName').value.trim();
+        if (!hostName) return alert("Isi nama dulu!");
+        const roomCode = generateRoomCode();
+        const now = Date.now();
 
-  function addMessage(player, msg) {
-    const div = document.createElement('div');
-    div.className="p-2 bg-indigo-50 rounded";
-    div.textContent = player+": "+msg;
-    document.getElementById('chatMessages').appendChild(div);
-    document.getElementById('chatMessages').scrollTop = document.getElementById('chatMessages').scrollHeight;
-  }
+        await set(ref(db, `rooms/${roomCode}`), {
+          createdAt: now,
+          state: { gameStarted: false }
+        });
 
-  window.addEventListener('beforeunload', async () => {
-    if (local.roomCode && local.playerId) {
-      await remove(ref(db, `rooms/${local.roomCode}/players/${local.playerId}`));
-    }
-  });
-</script>
+        const playerId = `p_${now}`;
+        await set(ref(db, `rooms/${roomCode}/players/${playerId}`), {
+          name: hostName,
+          isHost: true,
+          alive: true
+        });
 
+        local = { roomCode, playerId, playerName: hostName, isHost:true, players:{} };
+
+        document.getElementById('createRoom').classList.add('hidden');
+        document.getElementById('waitingRoom').classList.remove('hidden');
+        document.getElementById('displayRoomCode').textContent = roomCode;
+        document.getElementById('startGameBtn').classList.remove('hidden');
+
+        listenRoom(roomCode);
+      };
+
+      // === JOIN ROOM ===
+      window.joinRoom = async function() {
+        const name = document.getElementById('playerName').value.trim();
+        const roomCode = document.getElementById('roomCode').value.trim().toUpperCase();
+        if (!name || !roomCode) return alert("Isi nama + kode!");
+
+        const snap = await get(ref(db, `rooms/${roomCode}`));
+        if (!snap.exists()) return alert("Room tidak ada!");
+
+        const playerId = `p_${Date.now()}`;
+        await set(ref(db, `rooms/${roomCode}/players/${playerId}`), {
+          name,
+          isHost: false,
+          alive: true
+        });
+
+        local = { roomCode, playerId, playerName: name, isHost:false, players:{} };
+
+        document.getElementById('joinRoom').classList.add('hidden');
+        document.getElementById('waitingRoom').classList.remove('hidden');
+        document.getElementById('displayRoomCode').textContent = roomCode;
+
+        listenRoom(roomCode);
+      };
+
+      // === START GAME ===
+      window.startGame = async function() {
+        if (!local.isHost) return alert("Hanya host!");
+        await update(ref(db, `rooms/${local.roomCode}/state`), { gameStarted: true });
+      };
+
+      // === SEND CHAT ===
+      window.sendMessage = async function() {
+        const input = document.getElementById('chatInput');
+        const text = input.value.trim(); if (!text) return;
+        await set(push(ref(db, `rooms/${local.roomCode}/chat`)), {
+          player: local.playerName,
+          message: text,
+          ts: Date.now()
+        });
+        input.value = '';
+      };
+
+      // === LISTEN ROOM ===
+      function listenRoom(roomCode) {
+        onChildAdded(ref(db, `rooms/${roomCode}/players`), snap => {
+          local.players[snap.key] = snap.val();
+          updatePlayerList();
+        });
+        onChildRemoved(ref(db, `rooms/${roomCode}/players`), snap => {
+          delete local.players[snap.key];
+          updatePlayerList();
+        });
+
+        onChildAdded(ref(db, `rooms/${roomCode}/chat`), snap => {
+          const m = snap.val();
+          addMessage(m.player, m.message);
+        });
+
+        onValue(ref(db, `rooms/${roomCode}/state`), snap => {
+          const st = snap.val();
+          if (st && st.gameStarted) {
+            document.getElementById('waitingRoom').classList.add('hidden');
+            document.getElementById('gameScreen').classList.remove('hidden');
+          }
+        });
+      }
+
+      function updatePlayerList() {
+        const list = document.getElementById('playerList');
+        list.innerHTML = '';
+        Object.values(local.players).forEach(p => {
+          const div = document.createElement('div');
+          div.className = "p-2 bg-gray-100 rounded";
+          div.textContent = p.name + (p.isHost ? " 👑" : "");
+          list.appendChild(div);
+        });
+        document.getElementById('currentPlayerCount').textContent = Object.keys(local.players).length;
+      }
+
+      function addMessage(player, msg) {
+        const div = document.createElement('div');
+        div.className = "p-2 bg-indigo-50 rounded";
+        div.textContent = player + ": " + msg;
+        document.getElementById('chatMessages').appendChild(div);
+        document.getElementById('chatMessages').scrollTop = document.getElementById('chatMessages').scrollHeight;
+      }
+
+      // keluar room kalau close tab
+      window.addEventListener('beforeunload', async () => {
+        if (local.roomCode && local.playerId) {
+          await remove(ref(db, `rooms/${local.roomCode}/players/${local.playerId}`));
+        }
+      });
+    </script>
 </body>
 </html>
